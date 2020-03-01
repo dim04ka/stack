@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export REPOPATH=/home/host0609/repositories/stack/dist/*
+    - export SITEPATH=/home/host0609/stack.sfy.by/
+    - /bin/rsync -rav --exclude '.git' --exclude '.cpanel.yml' --del $REPOPATH $SITEPATH
