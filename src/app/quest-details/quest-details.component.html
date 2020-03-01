@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h2>{{ questDelail[0].title }}</h2>
+  <hr>
+  <quill-view-html [content]="questDelail[0].disc"></quill-view-html>
+  <div class="href">
+    <span *ngFor="let item of questDelail[0].tags">{{item}}</span>
+  </div>
+  <div>
+    <button type="button" (click)="delete()">Удалить вопрос</button>
+  </div>
+</div>

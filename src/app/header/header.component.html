@@ -1,0 +1,88 @@
+<header>
+  <div class="container">
+    <div class="header-wrap">
+      <div class="header-btn" (click)="mobileMenu()">
+        <!-- class="active" -->
+        <span></span>
+        <div class="header-menu__mobile" [class.header-menu__mobile-active]="showMobileMenu">
+          <ul>
+            <li class="active">
+              <a routerLink="" >Главная</a>
+            </li>
+            <li>
+              <a href="#">Вопросы</a>
+            </li>
+            <li>
+              <a href="#">Метки</a>
+            </li>
+            <li>
+              <a href="#">Участники</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <a routerLink="/" class="header-logo">
+      </a>
+      <form action="#" class="header-form" [class.header-form-active]="showSearchBlock">
+        <div class="header-search__wrap">
+          <input type="text" placeholder="Поиск ..." class="header-search" [(ngModel)]="search" (input)="searchUpdate()" name="searchInput" (focus)="searchFormFocus()"  (blur)="searchFormBlur()">
+        </div>
+        <div class="header-quest">
+          <div class="header-wrapper" [class.header-wrapper-active]="showSearchBlockHint">
+            <ul>
+              <li>
+                [метка] <span>поиск по метке</span>
+              </li>
+              <li>
+                user:1234 <span>поиск по автору</span>
+              </li>
+              <li>
+                "слова в кавычках" <span>точная фраза</span>
+              </li>
+              <li>
+                answers:0 <span>неотвеченные вопросы</span>
+              </li>
+              <li>
+                score:3 <span>сообщения с рейтингом 3+</span>
+              </li>
+              <li>
+                isaccepted:yes <span>поиск по статусу</span>
+              </li>
+            </ul>
+            <div class="header-question">
+              <button>Задать вопрос</button>
+              <a href="#">Справка по поиску</a>
+            </div>
+          </div>
+
+        </div>
+      </form>
+      <div class="header-panel panel">
+        <a href="#" class="panel-item panel-item__search" (click)="searchBlock()">
+          <span></span>
+        </a>
+        <a href="#" class="panel-item panel-item__avatar">
+          <span></span>
+          <div class="panel-item__stat">
+            <div class="rating">284</div>
+            <div class="silver">2</div>
+            <div class="bronze">14</div>
+          </div>
+        </a>
+        <a href="#" class="panel-item panel-item__driver">
+          <span></span>
+        </a>
+        <a href="#" class="panel-item panel-item__cup">
+          <span></span>
+        </a>
+        <a href="#" class="panel-item panel-item__question">
+          <span></span>
+        </a>
+        <a href="#" class="panel-item panel-item__message">
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+

@@ -1,0 +1,85 @@
+<div class="main">
+  <div class="main-wrap">
+    <div>
+      <div class="main-menu__mobile">
+        <ul>
+          <li class="active">
+            <a routerLink="/" >Главная</a>
+          </li>
+          <li>
+            <a href="#">Вопросы</a>
+          </li>
+          <li>
+            <a href="#">Метки</a>
+          </li>
+          <li>
+            <a href="#">Участники</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-section">
+    <router-outlet></router-outlet>
+    </div>
+    <div class="main-aside">
+      <div class="content">
+        <div class="content-important important">
+          <div class="important__title">Важное в Мете</div>
+          <div class="important-block">
+            <div class="important-icon important-icon__message"></div>
+            <a href="#" class="important-title">TLS 1.0 and TLS  1.1 removal for Stack Exchange services</a>
+          </div>
+          <div class="important-block">
+            <div class="important-icon important-icon__stack"></div>
+            <a href="#" class="important-title">Давайте активируем новую страницу публикации вопроса!</a>
+          </div>
+          <div class="important-block">
+            <div class="important-icon important-icon__stack"></div>
+            <a href="#" class="important-title">Возвращение причины закрытия вопросов «учебные задания»</a>
+          </div>
+          <div class="important__title">Обсуждаемое в Мете</div>
+          <div class="important-block">
+            <div class="important-num">8</div>
+            <a href="#" class="important-title">Предлагаю голосовать за возвращение причины учебные задания</a>
+          </div>
+          <div class="important-block">
+            <div class="important-num">16</div>
+            <a href="#" class="important-title">Что будем делать с причиной закрытия “учебные задания”?</a>
+          </div>
+        </div>
+        <div class="content-filter filter">
+          <div class="filter-title">Пользовательские фильтры</div>
+          <a href="#">Создать пользовательский фильтр</a>
+        </div>
+        <div class="content-filter filter">
+          <div class="filter-title"><span></span>Игнорируемые метки</div>
+          <a href="#">Добавить метку в игнорируемые</a>
+        </div>
+        <div class="content-metka metka">
+          <h4>Недавние метки</h4>
+          <div class="metka-block" *ngFor="let item of metka">
+            <span class="metka-name">{{ item.title }}</span>
+            <span class="metka-count">{{ item.numbers }}</span>
+          </div>
+        </div>
+        <div class="content-sign sign">
+          <h4>Недавно полученные знаки</h4>
+          <div class="sign-block" *ngFor="let znak of znaks">
+            <span class="sign-name"> <span class="medal" [ngClass]="'medal-' + znak.medal"></span> {{znak.title}}</span>
+            <span class="sign-subname">{{znak.name}}</span>
+          </div>
+<!--          <div class="sign-block">-->
+<!--            <span class="sign-name"> <span class="medal medal-gold"></span>  Знаменитый вопрос</span>-->
+<!--            <span class="sign-subname">MegaPihar11</span>-->
+<!--          </div>-->
+<!--          <div class="sign-block">-->
+<!--            <span class="sign-name"> <span class="medal medal-silver"></span> Годовалый</span>-->
+<!--            <span class="sign-subname">Andter</span>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

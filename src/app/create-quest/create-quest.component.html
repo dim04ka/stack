@@ -1,0 +1,55 @@
+<!-- <div class="wrapper">
+  <h1>Задать вопрос</h1>
+  <form action="#" (submit)="sendForm()">
+    <label>
+      <div>Заголовок</div>
+      <input class="input-title" type="text" placeholder="В чём заключается ваш вопрос? Будьте конкретны."
+             [(value)]="title" (keydown)="changeTitle($event)"
+      >
+    </label>
+    <label>
+      <div>Основная часть</div>
+      <textarea class="textarea"  name="textarea" id="textarea" cols="30" rows="10" data-min-length
+                [(value)]="disc" (keydown)="changeDisc($event)" required="true"
+      ></textarea>
+    </label>
+    <label>
+      <div>Метки</div>
+      <input class="input-title" type="text" placeholder="например, [jquery wpf алгоритм]">
+    </label>
+    <input class="button" type="submit" value="Отправить вопрос">
+  </form>
+</div> -->
+
+<div class="wrapper">
+  <h1>Задать вопрос</h1>
+  <form [formGroup]="form" (ngSubmit)="sendForm()">
+    <label>
+      <div [class.warning]="form.get('title').invalid && form.get('title').touched && form.get('title').dirty">Заголовок</div>
+      <input class="input-title input-title-validate" type="text" placeholder="В чём заключается ваш вопрос? Будьте конкретны."
+            formControlName="title"
+      >
+      <div class="validator" *ngIf="form.get('title').invalid && form.get('title').touched && form.get('title').dirty">
+        <span *ngIf="form.get('title').errors.required">Поле не заполнено</span>
+        <span *ngIf="form.get('title').errors.minlength">Заголовок не может быть короче 15 символов. Осталось ввести {{form.get('title').errors.minlength.actualLength}} символов </span>
+      </div>
+    </label>
+    <label>
+      <div [class.warning]="form.get('disc').invalid && form.get('disc').touched && form.get('disc').dirty">Основная часть</div>
+      <quill-editor formControlName="disc" ></quill-editor>
+
+      <div class="validator" *ngIf="form.get('disc').invalid && form.get('disc').touched && form.get('disc').dirty">
+        <span *ngIf="form.get('disc').errors.required">Отсутствует тело сообщения.</span>
+      </div>
+    </label>
+    <label>
+      <div>Метки</div>
+      <input class="input-title" type="text" placeholder="например, [jquery wpf алгоритм]">
+<!--      <div class="validator">-->
+<!--        <span>Введите как минимум одну метку; см. список <a href="#">популярных меток.</a></span>-->
+<!--      </div>-->
+    </label>
+    <input class="button" type="submit" value="Отправить вопрос" [disabled]="form.invalid">
+  </form>
+</div>
+

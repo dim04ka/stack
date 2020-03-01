@@ -1,0 +1,32 @@
+.wrap {
+    padding: 24px;
+    text-align: center;
+
+    & .err {
+
+        &-img {
+            color: #9bd4ea;
+            font-size: 130px;
+      
+        }
+
+        &-text {
+            margin-bottom: 35px;;
+        }
+    }
+
+    & .help {
+        font-size: 20px;
+
+        a {
+            color: #37b2e2;;
+
+            text-decoration: none;
+            transition: all .3s;
+
+            &:hover {
+                color: #0e6789;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row-title">
+    <h1>Вопросы</h1>
+<!--    <button>Задать вопрос</button>-->
+    <a routerLink="/create" class="button">Задать вопрос</a>
+  </div>
+  <div class="row-btnGroup">
+    <button>Интересные</button>
+    <button class="competition">Конкурсные</button>
+    <button>Популярные</button>
+    <button>За неделю</button>
+    <button>За месяц</button>
+  </div>
+</div>
+<div *ngIf="(questState | async).questions.length > 0; else noQuest">
+  <div class="main-questions questions" *ngFor="let quest of (questState | async).questions | filter:search" >
+  <div class="row">
+    <span>{{ quest.vote }} голосов</span>
+    <span class="answer">{{ quest.answer }}  ответ</span>
+    <span>{{ quest.impressions }} показов</span>
+  </div>
+  <h3 class="title">
+    <a (click)='onSelect(quest)'>
+      {{ quest.title }}
+    </a>
+  </h3>
+  <div class="row row-link">
+    <div class="href">
+      <span *ngFor="let item of quest.tags">{{item}}</span>
+    </div>
+    <div class="answer">
+      ответ дан 30 минут назад <a href="#">{{ quest.author }} <span>{{ quest.authorRating }}</span> </a>
+    </div>
+  </div>
+</div>
+</div>
+<ng-template #noQuest>
+  <h2 class="noQuest">Нет вопросов ...</h2>
+</ng-template>
+<div class="main-disc">
+  <div class="container">
+    <p class="title">
+      Ищете что-то ещё? Посмотрите <a href="#">полный список вопросов</a> или <a href="#">популярные метки.</a> Помогите нам ответить на <a href="#">неотвеченные вопросы.</a>
+    </p>
+  </div>
+</div>
