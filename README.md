@@ -1,5 +1,16 @@
-# MyApp
-ССылка на демо  <a href="http://stack.sfy.by/" target="_blank>http://stack.sfy.by/</a>
+# MyApp Angular 8
+Сcылка на демо  http://stack.sfy.by/
+
+
+Из функционала:
+<ul>
+  <li>-  добавление нового вопроса</li>
+  <li>-  просмотр вопроса</li>
+  <li>-  поиск по заголовку вопроса</li>
+  <li>-  валидация</li>
+  <li>-  роутинг</li>
+</ul>
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
